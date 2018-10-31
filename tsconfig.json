@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+       "target": "ES6",
+       "module": "commonjs",
+       "sourceMap": true,
+       "moduleResolution": "node",
+       "preserveConstEnums": true,
+       "removeComments": true,
+       "noImplicitReturns": true,
+       "pretty": true,
+       "allowJs": false,
+       "allowUnreachableCode": false,
+       "forceConsistentCasingInFileNames": true,
+       "noFallthroughCasesInSwitch": true,
+       "noUnusedLocals": true,
+       "noUnusedParameters": false,
+       "strict": false,
+       "strictFunctionTypes": false,
+       "lib": [
+          "es6"
+       ]
+    },
+    "compileOnSave": false,
+    "include": [
+       "src/**/*.ts",
+       "tests/**/*.ts",
+       "typings/**/*.ts"
+    ]
+ }

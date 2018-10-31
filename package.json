@@ -2,9 +2,12 @@
   "name": "typescript-decode",
   "version": "0.0.1",
   "description": "Decode and validate objects in typescript to ensure they fit the expected type",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prebuild": "rimraf 'src/**/*.js' 'src/**/*.map' 'tests/**/*.js' 'tests/**/*.map'",
+    "build": "./node_modules/.bin/tsc",
+    "pretest": "yarn && yarn build",
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha ./tests/*.js --full-trace --require source-map-support/register --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,16 @@
   "bugs": {
     "url": "https://github.com/stephenreddek/typescript-decode/issues"
   },
-  "homepage": "https://github.com/stephenreddek/typescript-decode#readme"
+  "homepage": "https://github.com/stephenreddek/typescript-decode#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "source-map-support": "^0.5.9",
+    "typescript": "^3.1.4"
+  }
 }
