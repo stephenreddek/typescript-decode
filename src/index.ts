@@ -37,13 +37,18 @@ function actualValueDescription(obj: any): string {
    return typeof obj
 }
 
-export function fail(message: string) {
-   return new DecodeError(message)
-}
-
 export interface Decoder<T> {
    (obj: any): T
    expectation: string
+}
+
+export function fail(message: string): Decoder<never> {
+   return Object.assign(
+      () => {
+         throw new DecodeError(message)
+      },
+      { expectation: message }
+   )
 }
 
 export function hardcoded<T>(value: T): Decoder<T> {
